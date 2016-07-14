@@ -13,6 +13,7 @@ import App from '../components/App';
 // Child routes
 import home from './home';
 import contact from './contact';
+import places from './places';
 import login from './login';
 import register from './register';
 import content from './content';
@@ -27,6 +28,7 @@ export default {
     contact,
     login,
     register,
+    places,
     content,
     error
   ],
@@ -35,7 +37,7 @@ export default {
     const component = await next();
     if (component === undefined)
       return component;
-    
+
     return render(
       <App context={context}>{component}</App>
     )

@@ -22,9 +22,9 @@ const schema = new Schema({
     fields: {
       me,
       content,
-      news,
-    },
-  }),
+      news
+    }
+  })
 });
 
 export default schema;

@@ -16,6 +16,7 @@ export default {
   path: '/',
 
   async action() {
+    console.log('fetching for home');
     const resp = await fetch('/graphql', {
       method: 'post',
       headers: {
@@ -25,7 +26,7 @@ export default {
       body: JSON.stringify({
         query: '{news{title,link,contentSnippet}}',
       }),
-      credentials: 'include',
+      credentials: 'include'
     });
     const { data } = await resp.json();
     if (!data || !data.news) throw new Error('Failed to load the news feed.');
