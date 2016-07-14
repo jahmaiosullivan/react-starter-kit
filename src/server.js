@@ -20,7 +20,7 @@ import ReactDOM from 'react-dom/server';
 import Html from './components/Html';
 import { ErrorPage } from './routes/error/ErrorPage';
 import errorPageStyle from './routes/error/ErrorPage.css';
-import UniversalRouter from 'universal-router';
+import { resolve } from 'universal-router';
 import PrettyError from 'pretty-error';
 import passport from './core/passport';
 import models from './data/models';
@@ -88,7 +88,7 @@ app.get('*', async (req, res, next) => {
     let statusCode = 200;
     const data = { title: '', description: '', style: '', script: assets.main.js, children: '' };
 
-    await UniversalRouter.resolve(routes, {
+    await resolve(routes, {
       path: req.path,
       query: req.query,
       context: {

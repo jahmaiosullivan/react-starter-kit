@@ -27,7 +27,7 @@ function Navigation({ className }) {
 }
 
 Navigation.propTypes = {
-  className: PropTypes.string,
+  className: PropTypes.string
 };
 
 export default withStyles(s)(Navigation);
