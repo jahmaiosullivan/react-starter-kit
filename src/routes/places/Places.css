@@ -25,3 +25,7 @@
   -moz-perspective: 1300px;
   perspective: 1300px;
 }
+
+.details h2 {
+  margin-top: 0;
+}

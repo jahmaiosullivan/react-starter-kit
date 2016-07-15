@@ -40,7 +40,7 @@ const config = {
   output: {
     path: path.resolve(__dirname, '../build/public/assets'),
     publicPath: '/assets/',
-    sourcePrefix: '  ',
+    sourcePrefix: '  '
   },
 
   module: {
@@ -94,39 +94,39 @@ const config = {
           'isomorphic-style-loader',
           `css-loader?${JSON.stringify({ sourceMap: DEBUG, minimize: !DEBUG })}`,
           'postcss-loader?pack=sass',
-          'sass-loader',
-        ],
+          'sass-loader'
+        ]
       },
       {
         test: /\.json$/,
-        loader: 'json-loader',
+        loader: 'json-loader'
       },
       {
         test: /\.txt$/,
-        loader: 'raw-loader',
+        loader: 'raw-loader'
       },
       {
         test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)$/,
         loader: 'url-loader',
         query: {
           name: DEBUG ? '[path][name].[ext]?[hash]' : '[hash].[ext]',
-          limit: 10000,
-        },
+          limit: 10000
+        }
       },
       {
         test: /\.(eot|ttf|wav|mp3)$/,
         loader: 'file-loader',
         query: {
           name: DEBUG ? '[path][name].[ext]?[hash]' : '[hash].[ext]',
-        },
-      },
-    ],
+        }
+      }
+    ]
   },
 
   resolve: {
     root: path.resolve(__dirname, '../src'),
     modulesDirectories: ['node_modules'],
-    extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx', '.json'],
+    extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx', '.json']
   },
 
   cache: DEBUG,
@@ -191,7 +191,7 @@ const config = {
         require('autoprefixer')({ browsers: AUTOPREFIXER_BROWSERS }),
       ],
     };
-  },
+  }
 };
 
 //
@@ -262,7 +262,7 @@ const serverConfig = extend(true, {}, config, {
 
   output: {
     filename: '../../server.js',
-    libraryTarget: 'commonjs2',
+    libraryTarget: 'commonjs2'
   },
 
   target: 'node',
