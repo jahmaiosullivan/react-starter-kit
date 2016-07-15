@@ -11,7 +11,6 @@ import React from 'react';
 import App from '../components/App';
 
 // Child routes
-import home from './home';
 import contact from './contact';
 import places from './places';
 import login from './login';
@@ -24,7 +23,6 @@ export default {
   path: '/',
 
   children: [
-    home,
     contact,
     login,
     register,

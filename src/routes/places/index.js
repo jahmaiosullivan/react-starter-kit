@@ -12,7 +12,7 @@ import Places from './Places.jsx';
 
 export default {
 
-  path: '/places',
+  path: '/',
 
   action() {
     return <Places />;

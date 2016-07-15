@@ -94,7 +94,7 @@ app.get('*', async (req, res, next) => {
       context: {
         insertCss: (styles) => css.push(styles._getCss()),
         setTitle: value => (data.title = value),
-        setMeta: (key, value) => (data[key] = value),
+        setMeta: (key, value) => (data[key] = value)
       },
       render(component, status = 200) {
         css = [];
@@ -102,7 +102,7 @@ app.get('*', async (req, res, next) => {
         data.children = ReactDOM.renderToString(component);
         data.style = css.join('');
         return true;
-      },
+      }
     });
 
     const html = ReactDOM.renderToStaticMarkup(<Html {...data} />);
