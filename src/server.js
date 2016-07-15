@@ -92,9 +92,7 @@ app.get('*', async (req, res, next) => {
       path: req.path,
       query: req.query,
       context: {
-        insertCss: (...styles) => {
-          styles.forEach(style => css.push(style._getCss())); // eslint-disable-line no-underscore-dangle, max-len
-        },
+        insertCss: (styles) => css.push(styles._getCss()),
         setTitle: value => (data.title = value),
         setMeta: (key, value) => (data[key] = value),
       },

@@ -69,9 +69,9 @@ const config = {
               'transform-react-remove-prop-types',
               'transform-react-constant-elements',
               'transform-react-inline-elements',
-            ],
-          ],
-        },
+            ]
+          ]
+        }
       },
       {
         test: /\.css/,
@@ -287,7 +287,7 @@ const serverConfig = extend(true, {}, config, {
     // Adds a banner to the top of each generated chunk
     // https://webpack.github.io/docs/list-of-plugins.html#bannerplugin
     new webpack.BannerPlugin('require("source-map-support").install();',
-      { raw: true, entryOnly: false }),
+      { raw: true, entryOnly: false })
   ],
 
   node: {
@@ -299,7 +299,7 @@ const serverConfig = extend(true, {}, config, {
     __dirname: false,
   },
 
-  devtool: 'source-map',
+  devtool: 'source-map'
 });
 
 export default [clientConfig, serverConfig];
