@@ -27,20 +27,14 @@ async function start() {
   await run(clean);
   await run(copy.bind(undefined, { watch: true }));
   await new Promise(resolve => {
+
     // Patch the client-side bundle configurations
     // to enable Hot Module Replacement (HMR) and React Transform
-    webpackConfig.filter(x => x.target !== 'node').forEach(config => {
+    webpackConfig.filter(x => x.target == 'web').forEach(config => {
       /* eslint-disable no-param-reassign */
-      config.entry = ['webpack-hot-middleware/client'].concat(config.entry);
-      config.output.filename = config.output.filename.replace('[chunkhash]', '[hash]');
-      config.output.chunkFilename = config.output.chunkFilename.replace('[chunkhash]', '[hash]');
-      config.plugins.push(new webpack.HotModuleReplacementPlugin());
-      config.plugins.push(new webpack.NoErrorsPlugin());
-      config
-        .module
-        .loaders
-        .filter(x => x.loader === 'babel-loader')
-        .forEach(x => (x.query = {
+      
+      config.module.loaders.filter(x => x.loader === 'babel-loader').forEach(x => (x.query =
+      {
           ...x.query,
 
           // Wraps all React components into arbitrary transforms
@@ -56,11 +50,11 @@ async function start() {
                 }, {
                   transform: 'react-transform-catch-errors',
                   imports: ['react', 'redbox-react'],
-                },
-              ],
-            },
-            ],
-          ],
+                }
+              ]
+            }
+            ]
+          ]
         }));
       /* eslint-enable no-param-reassign */
     });

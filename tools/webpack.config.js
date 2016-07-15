@@ -199,11 +199,11 @@ const config = {
 // -----------------------------------------------------------------------------
 
 const clientConfig = extend(true, {}, config, {
-  entry: './client.js',
+  entry: ['webpack-hot-middleware/client', './client.js'],
 
   output: {
-    filename: DEBUG ? '[name].js?[chunkhash]' : '[name].[chunkhash].js',
-    chunkFilename: DEBUG ? '[name].[id].js?[chunkhash]' : '[name].[id].[chunkhash].js'
+    filename: DEBUG ? '[name].js?[hash]' : '[name].[hash].js',
+    chunkFilename: DEBUG ? '[name].[id].js?[hash]' : '[name].[id].[hash].js'
   },
 
   target: 'web',
@@ -245,7 +245,11 @@ const clientConfig = extend(true, {}, config, {
       // A plugin for a more aggressive chunk merging strategy
       // https://webpack.github.io/docs/list-of-plugins.html#aggressivemergingplugin
       new webpack.optimize.AggressiveMergingPlugin()
-    ]
+    ],
+
+    new webpack.HotModuleReplacementPlugin(),
+
+    new webpack.NoErrorsPlugin()
   ],
 
   // Choose a developer tool to enhance debugging
