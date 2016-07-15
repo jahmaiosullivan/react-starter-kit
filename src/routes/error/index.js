@@ -22,6 +22,6 @@ export default {
       </App>,
       error.status || 500
     );
-  },
+  }
 
 };
