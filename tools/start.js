@@ -67,7 +67,7 @@ async function start() {
       publicPath: webpackConfig[0].output.publicPath,
 
       // Pretty colored output
-      stats: webpackConfig[0].stats,
+      stats: webpackConfig[0].stats
 
       // For other settings see
       // https://webpack.github.io/docs/webpack-dev-middleware
