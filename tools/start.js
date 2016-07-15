@@ -32,7 +32,7 @@ async function start() {
     // to enable Hot Module Replacement (HMR) and React Transform
     webpackConfig.filter(x => x.target == 'web').forEach(config => {
       /* eslint-disable no-param-reassign */
-      
+
       config.module.loaders.filter(x => x.loader === 'babel-loader').forEach(x => (x.query =
       {
           ...x.query,
@@ -46,10 +46,10 @@ async function start() {
                 {
                   transform: 'react-transform-hmr',
                   imports: ['react'],
-                  locals: ['module'],
+                  locals: ['module']
                 }, {
                   transform: 'react-transform-catch-errors',
-                  imports: ['react', 'redbox-react'],
+                  imports: ['react', 'redbox-react']
                 }
               ]
             }
@@ -82,16 +82,16 @@ async function start() {
         if (!err) {
           const bs = Browsersync.create();
           bs.init({
-            ...(DEBUG ? {} : { notify: false, ui: false }),
+            ...(DEBUG ? { open: false } : { notify: false, ui: false }),
 
             proxy: {
               target: host,
-              middleware: [wpMiddleware, ...hotMiddlewares],
+              middleware: [wpMiddleware, ...hotMiddlewares]
             },
 
             // no need to watch '*.js' here, webpack will take care of it for us,
             // including full page reloads if HMR won't work
-            files: ['build/content/**/*.*'],
+            files: ['build/content/**/*.*']
           }, resolve);
           handleServerBundleComplete = runServer;
         }
