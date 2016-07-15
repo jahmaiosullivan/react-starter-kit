@@ -22,11 +22,11 @@ const AUTOPREFIXER_BROWSERS = [
   'Explorer >= 9',
   'iOS >= 7',
   'Opera >= 12',
-  'Safari >= 7.1',
+  'Safari >= 7.1'
 ];
 const GLOBALS = {
   'process.env.NODE_ENV': DEBUG ? '"development"' : '"production"',
-  __DEV__: DEBUG,
+  __DEV__: DEBUG
 };
 
 //
@@ -141,7 +141,7 @@ const config = {
     chunks: VERBOSE,
     chunkModules: VERBOSE,
     cached: VERBOSE,
-    cachedAssets: VERBOSE,
+    cachedAssets: VERBOSE
   },
 
   postcss(bundler) {
@@ -185,11 +185,11 @@ const config = {
         require('postcss-selector-not')(),
         // Add vendor prefixes to CSS rules using values from caniuse.com
         // https://github.com/postcss/autoprefixer
-        require('autoprefixer')({ browsers: AUTOPREFIXER_BROWSERS }),
+        require('autoprefixer')({ browsers: AUTOPREFIXER_BROWSERS })
       ],
       sass: [
-        require('autoprefixer')({ browsers: AUTOPREFIXER_BROWSERS }),
-      ],
+        require('autoprefixer')({ browsers: AUTOPREFIXER_BROWSERS })
+      ]
     };
   }
 };
@@ -203,7 +203,7 @@ const clientConfig = extend(true, {}, config, {
 
   output: {
     filename: DEBUG ? '[name].js?[chunkhash]' : '[name].[chunkhash].js',
-    chunkFilename: DEBUG ? '[name].[id].js?[chunkhash]' : '[name].[id].[chunkhash].js',
+    chunkFilename: DEBUG ? '[name].[id].js?[chunkhash]' : '[name].[id].[chunkhash].js'
   },
 
   target: 'web',
@@ -219,7 +219,7 @@ const clientConfig = extend(true, {}, config, {
     new AssetsPlugin({
       path: path.resolve(__dirname, '../build'),
       filename: 'assets.js',
-      processOutput: x => `module.exports = ${JSON.stringify(x)};`,
+      processOutput: x => `module.exports = ${JSON.stringify(x)};`
     }),
 
     // Assign the module and chunk ids by occurrence count
@@ -238,19 +238,19 @@ const clientConfig = extend(true, {}, config, {
       new webpack.optimize.UglifyJsPlugin({
         compress: {
           screw_ie8: true, // jscs:ignore requireCamelCaseOrUpperCaseIdentifiers
-          warnings: VERBOSE,
-        },
+          warnings: VERBOSE
+        }
       }),
 
       // A plugin for a more aggressive chunk merging strategy
       // https://webpack.github.io/docs/list-of-plugins.html#aggressivemergingplugin
-      new webpack.optimize.AggressiveMergingPlugin(),
-    ],
+      new webpack.optimize.AggressiveMergingPlugin()
+    ]
   ],
 
   // Choose a developer tool to enhance debugging
   // http://webpack.github.io/docs/configuration.html#devtool
-  devtool: DEBUG ? 'cheap-module-eval-source-map' : false,
+  devtool: DEBUG ? 'cheap-module-eval-source-map' : false
 });
 
 //
@@ -275,7 +275,7 @@ const serverConfig = extend(true, {}, config, {
         !request.match(/^react-routing/) &&
         !context.match(/[\\/]react-routing/);
       cb(null, Boolean(isExternal));
-    },
+    }
   ],
 
   plugins: [
@@ -296,7 +296,7 @@ const serverConfig = extend(true, {}, config, {
     process: false,
     Buffer: false,
     __filename: false,
-    __dirname: false,
+    __dirname: false
   },
 
   devtool: 'source-map'
