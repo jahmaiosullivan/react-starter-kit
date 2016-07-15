@@ -229,28 +229,28 @@ const clientConfig = extend(true, {}, config, {
 
     ...DEBUG ? [] : [
 
-      // Search for equal or similar files and deduplicate them in the output
-      // https://webpack.github.io/docs/list-of-plugins.html#dedupeplugin
-      new webpack.optimize.DedupePlugin(),
+        // Search for equal or similar files and deduplicate them in the output
+        // https://webpack.github.io/docs/list-of-plugins.html#dedupeplugin
+        new webpack.optimize.DedupePlugin(),
 
-      // Minimize all JavaScript output of chunks
-      // https://github.com/mishoo/UglifyJS2#compressor-options
-      new webpack.optimize.UglifyJsPlugin({
-        compress: {
-          screw_ie8: true, // jscs:ignore requireCamelCaseOrUpperCaseIdentifiers
-          warnings: VERBOSE,
-        },
-      }),
+        // Minimize all JavaScript output of chunks
+        // https://github.com/mishoo/UglifyJS2#compressor-options
+        new webpack.optimize.UglifyJsPlugin({
+          compress: {
+            screw_ie8: true,
+            warnings: VERBOSE,
+          }
+        }),
 
-      // A plugin for a more aggressive chunk merging strategy
-      // https://webpack.github.io/docs/list-of-plugins.html#aggressivemergingplugin
-      new webpack.optimize.AggressiveMergingPlugin(),
-    ],
+        // A plugin for a more aggressive chunk merging strategy
+        // https://webpack.github.io/docs/list-of-plugins.html#aggressivemergingplugin
+        new webpack.optimize.AggressiveMergingPlugin(),
+    ]
   ],
 
   // Choose a developer tool to enhance debugging
   // http://webpack.github.io/docs/configuration.html#devtool
-  devtool: DEBUG ? 'cheap-module-eval-source-map' : false,
+  devtool: DEBUG ? 'cheap-module-eval-source-map' : false
 });
 
 //
@@ -268,14 +268,14 @@ const serverConfig = extend(true, {}, config, {
   target: 'node',
 
   externals: [
-    /^\.\/assets$/,
-    function filter(context, request, cb) {
-      const isExternal =
-        request.match(/^[@a-z][a-z\/\.\-0-9]*$/i) &&
-        !request.match(/^react-routing/) &&
-        !context.match(/[\\/]react-routing/);
-      cb(null, Boolean(isExternal));
-    },
+              /^\.\/assets$/,
+              (context, request, cb) => {
+                const isExternal =
+                  request.match(/^[@a-z][a-z\/\.\-0-9]*$/i) &&
+                  !request.match(/^react-routing/) &&
+                  !context.match(/[\\/]react-routing/);
+                cb(null, Boolean(isExternal));
+              }
   ],
 
   plugins: [

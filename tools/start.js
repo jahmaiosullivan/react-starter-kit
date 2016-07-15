@@ -52,15 +52,15 @@ async function start() {
                 {
                   transform: 'react-transform-hmr',
                   imports: ['react'],
-                  locals: ['module'],
+                  locals: ['module']
                 }, {
                   transform: 'react-transform-catch-errors',
-                  imports: ['react', 'redbox-react'],
-                },
-              ],
-            },
-            ],
-          ],
+                  imports: ['react', 'redbox-react']
+                }
+              ]
+            }
+            ]
+          ]
         }));
       /* eslint-enable no-param-reassign */
     });
@@ -73,7 +73,7 @@ async function start() {
       publicPath: webpackConfig[0].output.publicPath,
 
       // Pretty colored output
-      stats: webpackConfig[0].stats,
+      stats: webpackConfig[0].stats
 
       // For other settings see
       // https://webpack.github.io/docs/webpack-dev-middleware
@@ -92,19 +92,19 @@ async function start() {
 
             proxy: {
               target: host,
-              middleware: [wpMiddleware, ...hotMiddlewares],
+              middleware: [wpMiddleware, ...hotMiddlewares]
             },
 
             // no need to watch '*.js' here, webpack will take care of it for us,
             // including full page reloads if HMR won't work
-            files: ['build/content/**/*.*'],
+            files: ['build/content/**/*.*']
           }, resolve);
           handleServerBundleComplete = runServer;
         }
       });
     };
 
-    bundler.plugin('done', () => handleServerBundleComplete());
+    //bundler.plugin('done', () => handleServerBundleComplete());
   });
 }
 
