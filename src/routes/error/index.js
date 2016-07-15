@@ -16,6 +16,12 @@ export default {
   path: '/error',
 
   action({ render, context, error }) {
+
+    if (error.status === 404) {
+      error.title = 'Page Not Found';
+      error.content = 'Sorry, the page you were trying to view does not exist.';
+    }
+
     return render(
       <App context={context} error={error}>
         <ErrorPage error={error} />
@@ -23,5 +29,4 @@ export default {
       error.status || 500
     );
   }
-
 };

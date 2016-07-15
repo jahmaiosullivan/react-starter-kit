@@ -115,16 +115,23 @@ const pe = new PrettyError();
 pe.skipNodeFiles();
 pe.skipPackage('express');
 
-app.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
-  console.log(pe.render(err)); // eslint-disable-line no-console
+app.use((err, req, res, next) =>
+{
+  console.log(pe.render(err));
+
   const statusCode = err.status || 500;
 
+  if (err.status == 500)
+  {
+    err.content = 'Sorry, a critical error occurred on this page.';
+  }
+
   const data = {
-                 title: 'Internal Server Error',
-                 description: err.message,
-                 style: errorPageStyle._getCss(),
-                 children: ReactDOM.renderToString(<ErrorPage error={err} />)
-               };
+    title: 'Internal Server Error',
+    description: err.message,
+    style: errorPageStyle._getCss(),
+    children: ReactDOM.renderToString(<ErrorPage error={err} />)
+  };
 
   const html = ReactDOM.renderToStaticMarkup(<Html {...data} />);
 
