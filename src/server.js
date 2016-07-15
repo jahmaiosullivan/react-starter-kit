@@ -52,7 +52,7 @@ app.use(bodyParser.json());
 app.use(expressJwt({
   secret: auth.jwt.secret,
   credentialsRequired: false,
-  getToken: req => req.cookies.id_token,
+  getToken: req => req.cookies.id_token
 }));
 app.use(passport.initialize());
 
