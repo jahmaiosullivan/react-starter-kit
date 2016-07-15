@@ -29,3 +29,12 @@
 .details h2 {
   margin-top: 0;
 }
+
+.placeRow {
+  margin-bottom: 20px;
+}
+
+.noGutter  [class*='col-'] {
+  padding-right:0;
+  padding-left:0;
+}
