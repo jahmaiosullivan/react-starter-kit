@@ -1,7 +1,6 @@
 import React from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import styles from './Places.css';
-import fl from 'react-flexbox-grid/lib';
 
 const title = 'My places';
 
