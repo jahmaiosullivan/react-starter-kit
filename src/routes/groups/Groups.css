@@ -1,0 +1,60 @@
+@import '../../components/variables.css';
+
+.root {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 0 40px;
+  max-width: var(--max-content-width);
+}
+
+.tileContainer {
+  -webkit-perspective: 1300px;
+  -moz-perspective: 1300px;
+  perspective: 1300px;
+}
+
+.details h2 {
+  margin-top: 0;
+}
+
+.placeRow {
+  margin-bottom: 20px;
+}
+
+.noGutter  [class*='col-'] {
+  padding-right:0;
+  padding-left:0;
+}
+
+.group {
+  padding-bottom: 20px;
+  padding-right: 20px;
+}
+
+.group .mainImage {
+  width: 100%;
+}
+
+.group .details {
+  margin: 10px 20px 0 0;
+}
+
+.group .details h3.name {
+  font-size: 13px;
+  color: #000;
+  font-weight: 700;
+  overflow: hidden;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.group .details .date {
+  font-size: 12px;
+  font-family: "Lato", sans-serif;
+  color: #999;
+  overflow: hidden;
+}

@@ -17,6 +17,7 @@ import login from './login';
 import register from './register';
 import content from './content';
 import error from './error';
+import groups from './groups';
 
 export default {
 
@@ -27,6 +28,7 @@ export default {
     login,
     register,
     places,
+    groups,
     content,
     error
   ],
