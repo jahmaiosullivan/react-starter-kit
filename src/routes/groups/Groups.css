@@ -40,7 +40,7 @@
 }
 
 .group .details {
-  margin: 10px 20px 0 0;
+  margin: 10px 0 20px 0;
 }
 
 .group .details h3.name {
@@ -48,17 +48,22 @@
   color: #000;
   font-weight: 700;
   overflow: hidden;
-  margin-bottom: 0;
+  margin-bottom: 10px;
   margin-top: 0;
 }
 
-.group .details .date {
+.group .details {
   font-size: 12px;
   font-family: "Lato", sans-serif;
   color: #999;
   overflow: hidden;
 }
 
+
+.group .details .members
+{
+  float: right;
+}
 .group .imgContainer {
   position: relative;
 }

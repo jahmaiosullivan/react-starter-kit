@@ -38,6 +38,9 @@ function Group({img, name}) {
           <span className={styles.date}>
             <FontAwesome name='clock-o'/> February 12 ,2015
           </span>
+          <span className={styles.members}>
+            <FontAwesome name='user'/>150
+          </span>
         </div>
       </div>
     </Col>
