@@ -23,8 +23,10 @@ function Group({img, name}) {
     <Col xs={12} sm={6} md={4}>
       <div className={styles.group}>
         <div className={styles.imgContainer}>
-          <img className={styles.mainImage} src={ img } alt="place image"/>
-          <a href="#" className={styles.preview}>
+          <a href="#groupclick">
+            <img className={styles.mainImage} src={ img } alt="place image"/>
+          </a>
+          <a href="#preview" className={styles.preview}>
             Preview <FontAwesome name='eye'/>
           </a>
         </div>
