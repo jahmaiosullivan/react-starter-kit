@@ -33,7 +33,9 @@ function Group({img, name}) {
             <a title={name}
                href="http://videotube.marstheme.com/decorative-pumpkins-which-one/">{name}</a>
           </h3>
-          <span className={styles.date}><i class="fa fa-clock-o"></i> February 12 ,2015</span>
+          <span className={styles.date}>
+            <FontAwesome name='clock-o'/> February 12 ,2015
+          </span>
         </div>
       </div>
     </Col>
