@@ -20,7 +20,7 @@ const title = 'Groups';
 
 function Group({img, name }) {
   return (
-    <Col xs={12} sm={6} md={3}>
+    <Col xs={12} sm={6} md={4}>
       <div className={styles.group}>
         <img className={styles.mainImage} src={ img } alt="place image"/>
         <div className={styles.details}>
