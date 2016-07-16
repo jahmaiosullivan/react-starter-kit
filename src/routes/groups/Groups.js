@@ -2,7 +2,7 @@ import React from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import styles from './Groups.css';
 import classNames from 'classnames/bind';
-import mountains from './mountains.jpg';
+import FontAwesome from 'react-fontawesome';
 import cover1 from './cover1.jpg';
 import cover2 from './cover2.jpg';
 import cover3 from './cover3.jpg';
@@ -22,7 +22,12 @@ function Group({img, name}) {
   return (
     <Col xs={12} sm={6} md={4}>
       <div className={styles.group}>
-        <img className={styles.mainImage} src={ img } alt="place image"/>
+        <div className={styles.imgContainer}>
+          <img className={styles.mainImage} src={ img } alt="place image"/>
+          <a href="#" className={styles.preview}>
+            Preview <FontAwesome name='eye'/>
+          </a>
+        </div>
         <div className={styles.details}>
           <h3 className={styles.name}>
             <a title={name}
@@ -39,7 +44,7 @@ function Groups(props, context) {
   return (
     <div className={styles.root}>
       <div className={styles.container}>
-        <h1>{title} <Button bsStyle="primary">Start group</Button></h1> 
+        <h1>{title} <Button bsStyle="primary">Start group</Button></h1>
         <Grid fluid={true}>
           <Row className={styles.noGutter}>
             <Group img={cover1} name="Group 1"/>

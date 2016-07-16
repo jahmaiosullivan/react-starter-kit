@@ -58,3 +58,16 @@
   color: #999;
   overflow: hidden;
 }
+
+.group .imgContainer {
+  position: relative;
+}
+
+.group .preview {
+  position: absolute;
+  background-color: black;
+  padding: 5px;
+  color: #fff;
+  bottom: 5px;
+  right: 5px;
+}
