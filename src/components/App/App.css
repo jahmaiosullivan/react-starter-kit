@@ -25,8 +25,18 @@ html {
   line-height: 1.375; /* ~22px */
 }
 
+body {
+  font: normal 300 16px "Lato","Open Sans","Arial",sans-serif;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 a {
   color: #0074c2;
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 /*
