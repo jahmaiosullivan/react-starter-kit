@@ -64,10 +64,16 @@ app.get('/login/facebook/return',
 // Register API middleware
 // -----------------------------------------------------------------------------
 app.use('/graphql', expressGraphQL(req => ({
-  schema,
+  schema: schema,
   graphiql: true,
   rootValue: { request: req },
-  pretty: process.env.NODE_ENV !== 'production'
+  pretty: process.env.NODE_ENV !== 'production',
+  ...(process.env.NODE_ENV !== 'production' ? {} : {formatError: error => ({
+                                                        message: error.message,
+                                                        locations: error.locations,
+                                                        stack: error.stack
+                                                      })
+                                                   })
 })));
 
 //
@@ -148,6 +154,6 @@ models.sync().catch(err => console.error(err.stack)).then(() =>
   app.listen(port, () => {
     console.log(`The server is running at http://localhost:${port}/`);
   });
-  
+
 });
 /* eslint-enable no-console */
