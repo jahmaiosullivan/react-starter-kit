@@ -20,7 +20,7 @@ const title = 'Groups';
 
 function Group({img, name}) {
   return (
-    <Col xs={12} sm={6} md={4}>
+    <Col xs={12} sm={12} md={6}>
       <div className={styles.group}>
         <div className={styles.imgContainer}>
           <a href="#groupclick">

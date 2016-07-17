@@ -23,7 +23,7 @@
 
 .group {
   padding-bottom: 40px;
-  padding-right: 20px;
+  padding-right: 40px;
 
   .mainImage {
     width: 100%;
@@ -57,4 +57,15 @@
       float: right;
     }
   }
+}
+
+
+
+/*
+ * React Bootstrap
+ * ========================================================================== */
+
+.noGutter  [class*='col-'] {
+  padding-right:0;
+  padding-left:0;
 }
