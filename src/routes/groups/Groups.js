@@ -1,6 +1,6 @@
 import React from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import styles from './Groups.css';
+import styles from './Groups.scss';
 import classNames from 'classnames/bind';
 import FontAwesome from 'react-fontawesome';
 import cover1 from './cover1.jpg';

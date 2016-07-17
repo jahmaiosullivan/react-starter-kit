@@ -1,0 +1,80 @@
+@import '../../components/variables.scss';
+
+.root {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 0 40px;
+  max-width: var(--max-content-width);
+}
+
+.tileContainer {
+  -webkit-perspective: 1300px;
+  -moz-perspective: 1300px;
+  perspective: 1300px;
+}
+
+.placeRow {
+  margin-bottom: 20px;
+}
+
+.noGutter  [class*='col-'] {
+  padding-right:0;
+  padding-left:0;
+}
+
+.group {
+  padding-bottom: 40px;
+  padding-right: 20px;
+
+  .mainImage {
+    width: 100%;
+  }
+
+  .imgContainer {
+    position: relative;
+  }
+
+  .preview {
+    position: absolute;
+    background-color: black;
+    padding: 5px;
+    color: #fff;
+    bottom: 5px;
+    right: 5px;
+  }
+
+  .details {
+    margin: 10px 0 20px 0;
+    font-size: 12px;
+    font-family: "Lato", sans-serif;
+    color: #999;
+    overflow: hidden;
+
+    .preview {
+      position: absolute;
+      background-color: black;
+      padding: 5px;
+      color: #fff;
+      bottom: 5px;
+      right: 5px;
+    }
+
+    h3.name {
+      font-size: 16px;
+      color: #000;
+      font-weight: 700;
+      overflow: hidden;
+      margin-bottom: 10px;
+      margin-top: 0;
+    }
+
+    .members
+    {
+      float: right;
+    }
+  }
+}
