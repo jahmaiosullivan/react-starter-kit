@@ -26,7 +26,7 @@ html {
 }
 
 body {
-  font: normal 300 16px "Lato","Open Sans","Arial",sans-serif;
+  font: normal 300 13px "Lato","Open Sans","Arial",sans-serif;
   text-transform: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -37,6 +37,10 @@ a {
 
 a:hover {
   text-decoration: none;
+}
+
+h3 {
+  font-size: 16px;
 }
 
 /*
@@ -188,4 +192,13 @@ textarea {
   h3 {
     page-break-after: avoid;
   }
+}
+
+/*
+ * React Bootstrap
+ * ========================================================================== */
+
+.noGutter  [class*='col-'] {
+  padding-right:0;
+  padding-left:0;
 }
