@@ -84,7 +84,7 @@ async function resolveFileName(path) {
 const content = {
   type: ContentType,
   args: {
-    path: { type: new NonNull(StringType) },
+    path: { type: new NonNull(StringType) }
   },
   async resolve({ request }, { path }) {
     const { success, fileName, extension } = await resolveFileName(path);
@@ -94,7 +94,7 @@ const content = {
 
     const source = await readFile(fileName, { encoding: 'utf8' });
     return parseContent(path, source, extension);
-  },
+  }
 };
 
 export default content;

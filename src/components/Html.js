@@ -40,7 +40,7 @@ Html.propTypes = {
   description: PropTypes.string.isRequired,
   style: PropTypes.string.isRequired,
   script: PropTypes.string,
-  children: PropTypes.string,
+  children: PropTypes.string
 };
 
 export default Html;
