@@ -49,8 +49,8 @@ function Group({img, name}) {
 
 class Groups extends Component {
 
-  render() {
-
+  render()
+  {
     var groupNodes = this.props.groups.map(function(group) {
       return (
         <Group img={`/assets/routes/groups/images/${group.coverImage}`} name={group.name} key={group.id} />
@@ -61,7 +61,6 @@ class Groups extends Component {
       <div className={styles.root}>
         <div className={styles.container}>
           <h1>{title} <Button bsStyle="primary">Start group</Button></h1>
-
           <Grid fluid={true}>
             <Row className={styles.noGutter}>
               {groupNodes}
