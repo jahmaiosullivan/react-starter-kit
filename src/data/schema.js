@@ -1,11 +1,6 @@
 import {
   GraphQLSchema as Schema,
-  GraphQLObjectType as ObjectType,
-  GraphQLBoolean as Boolean,
-  GraphQLID as ID,
-  GraphQLNonNull as NonNull,
-  GraphQLString as StringType,
-  GraphQLInputObjectType as InputType
+  GraphQLObjectType as ObjectType
 } from 'graphql';
 
 import me from './queries/me';
@@ -13,19 +8,8 @@ import content from './queries/content';
 import news from './queries/news';
 import todos from './queries/todos';
 import groups from './queries/groups';
+import ToDoInputType from './types/input/ToDoInputType';
 import ToDoType from './types/todo';
-import CustomGraphQLDateType from 'graphql-custom-datetype';
-
-const ToDoInputType = new InputType({
-  name: 'ToDoInput',
-  fields: {
-    id: { type: new NonNull(ID) },
-    title: { type: StringType },
-    completed: { type: Boolean },
-    created: { type: CustomGraphQLDateType,  resolve: () => new Date() }
-  }
-});
-
 
 const schema = new Schema({
   query: new ObjectType({
