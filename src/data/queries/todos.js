@@ -20,8 +20,11 @@ const todos ={
   type: new List(ToDoType),
   resolve: function () {
           return TODOs;
-        }
+        },
+  add: function(item) {
+    TODOs.push(item);
+    return item;
+  }
 };
-
 
 export default todos;
