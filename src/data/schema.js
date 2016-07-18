@@ -8,8 +8,7 @@ import content from './queries/content';
 import news from './queries/news';
 import todos from './queries/todos';
 import groups from './queries/groups';
-import ToDoInputType from './types/input/ToDoInputType';
-import ToDoType from './types/todo';
+import { Add } from './mutations/ToDoMutations';
 
 const schema = new Schema({
   query: new ObjectType({
@@ -22,22 +21,7 @@ const schema = new Schema({
       groups
     }
   }),
-  mutation: new ObjectType({
-    name: 'Mutations',
-    description: 'Mutations change things',
-    fields: () => ({
-      add: {
-        type: ToDoType,
-        description: 'Add a new todo item.',
-        args: {
-          todo: { type: ToDoInputType }
-        },
-        resolve: (value, { todo }) => {
-          return todos.add(todo);
-        }
-      }
-    })
-  })
+  mutation: Add
 });
 
 export default schema;
