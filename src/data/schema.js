@@ -8,7 +8,7 @@ import content from './queries/content';
 import news from './queries/news';
 import todos from './queries/todos';
 import groups from './queries/groups';
-import { Add } from './mutations/ToDoMutations';
+import { AddToDoItem } from './mutations/ToDoMutations';
 
 const schema = new Schema({
   query: new ObjectType({
@@ -21,7 +21,13 @@ const schema = new Schema({
       groups
     }
   }),
-  mutation: Add
+  mutation: new ObjectType({
+    name: 'Mutations',
+    description: 'Mutations change things',
+    fields: {
+      add: AddToDoItem
+    }
+  })
 });
 
 export default schema;
